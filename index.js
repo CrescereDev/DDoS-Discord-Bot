@@ -35,7 +35,7 @@ client.on('ready', () => {
         .setTitle(`DDoS Method List (My prefix is ${prefix})`)
         .setDescription(
             "**Usage (with prefix): <method> <target ip/domain> <time>**\n\n\ntcp\n```TCP Attack Method```\nudp\n```UDP Attack Method```")
-        .setFooter(`Requested by` + message.author.tag)
+        .setFooter(`Requested by ` + message.author.tag)
         .setTimestamp()
         .setColor("#FF5733")
         message.channel.send(embed)
