@@ -34,7 +34,7 @@ client.on('ready', () => {
         let embed = new MessageEmbed()
         .setTitle(`DDoS Method List (My prefix is ${prefix})`)
         .setDescription(
-            "**Usage (with prefix): <method> <target ip/domain> <time>\n\n\ntcp\n```TCP Attack Method```\nudp\n```UDP Attack Method```")
+            "**Usage (with prefix): <method> <target ip/domain> <time>**\n\n\ntcp\n```TCP Attack Method```\nudp\n```UDP Attack Method```")
         .setFooter(`Requested by` + message.author.tag)
         .setTimestamp()
         .setColor("#FF5733")
@@ -55,7 +55,7 @@ client.on('ready', () => {
                 .setColor(`#FF5733`)
                 .setAuthor(`Your command has been requested!"`, "https://cdn.discordapp.com/emojis/727166288614522962.png?v=1")
                 .setDescription(`Attack sent to: \n\nIP Address: ${ip}\nPort: ${port}\nTime: ${time}`)
-                .setFooter(`Requested by` + message.author.tag)
+                .setFooter(`Requested by ` + message.author.tag)
                 .setTimestamp() 
                 message.channel.send(embed)  
                 } catch (e) {
@@ -79,7 +79,7 @@ client.on('ready', () => {
                 .setColor(`#FF5733`)
                 .setAuthor(`Your command has been requested!"`, "https://cdn.discordapp.com/emojis/727166288614522962.png?v=1")
                 .setDescription(`Attack sent to: \n\nIP Address: ${ip}\nPort: ${port}\nTime: ${time}`)
-                .setFooter(`Requested by` + message.author.tag)
+                .setFooter(`Requested by ` + message.author.tag)
                 .setTimestamp() 
                 message.channel.send(embed)  
                 } catch (e) {
